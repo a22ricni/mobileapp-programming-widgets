@@ -17,6 +17,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="193dp"
+        android:layout_height="217dp"
+        android:layout_marginBottom="12dp"
+        app:layout_constraintBottom_toTopOf="@+id/Button_Like"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Text_Welcome"
+        app:srcCompat="@android:mipmap/sym_def_app_icon" />
+
     <Button
         android:id="@+id/Button_Like"
         android:layout_width="wrap_content"
@@ -39,7 +50,6 @@
         app:layout_constraintStart_toEndOf="@+id/Button_Like"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintVertical_bias="0.8" />
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
