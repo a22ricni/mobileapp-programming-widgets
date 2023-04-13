@@ -1,42 +1,51 @@
 
 # Rapport
 
-**Skriv din rapport här!**
-
-_Du kan ta bort all text som finns sedan tidigare_.
-
-## Följande grundsyn gäller dugga-svar:
-
-- Ett kortfattat svar är att föredra. Svar som är längre än en sida text (skärmdumpar och programkod exkluderat) är onödigt långt.
-- Svaret skall ha minst en snutt programkod.
-- Svaret skall inkludera en kort övergripande förklarande text som redogör för vad respektive snutt programkod gör eller som svarar på annan teorifråga.
-- Svaret skall ha minst en skärmdump. Skärmdumpar skall illustrera exekvering av relevant programkod. Eventuell text i skärmdumpar måste vara läsbar.
-- I de fall detta efterfrågas, dela upp delar av ditt svar i för- och nackdelar. Dina för- respektive nackdelar skall vara i form av punktlistor med kortare stycken (3-4 meningar).
-
-Programkod ska se ut som exemplet nedan. Koden måste vara korrekt indenterad då den blir lättare att läsa vilket gör det lättare att hitta syntaktiska fel.
+Jag valde ConstraintLayout som min layout för min app. Efter jag valde vilken layout jag ska använda så implemtenterade
+jag en textview som hade som text "Welcome to my app". Jag ändra på textview position med hjälp av att anävnda mig 
+av denna rad kod:
 
 ```
-function errorCallback(error) {
-    switch(error.code) {
-        case error.PERMISSION_DENIED:
-            // Geolocation API stöds inte, gör något
-            break;
-        case error.POSITION_UNAVAILABLE:
-            // Misslyckat positionsanrop, gör något
-            break;
-        case error.UNKNOWN_ERROR:
-            // Okänt fel, gör något
-            break;
-    }
-}
+<TextView
+    (...)
+    app:layout_constraintVertical_bias="0.1"
+    (...)/>
 ```
 
-Bilder läggs i samma mapp som markdown-filen.
+Efter jag gjorde det bestämde jag mig att implementera två knappar som den ena knappen har texten "Like"
+och den andra knappen har texten "Dislike". Den ena knappen är mer åt vänster sidan och den andra är mer
+på den högra sidan av appen. Men dessa två knappar är på samma nivå på horizentalt. På grund av att 
+dessa knappar har olika position i vertikalt så behövdes det två det så att dessa två knappar har olika 
+värden på sin position samt behöved det också en värde för vilken horizentalt nivå de ska ha.
+Detta gjorde med två rader kod för att få en knapp att vara på rätt position. 
 
-![](android.png)
+```
+<Button
+    (...)
+    app:layout_constraintHorizontal_bias="0.1"
+    app:layout_constraintVertical_bias="0.8"/>
+```
 
-Läs gärna:
+Den andra knappen behöve bara den ena värdet som är vilken position den ska vara på vertikalr på grund av att
+när jag satte knappens "start" constraint med den andra knappens "end" så var knappen på rätt horizentalt nivå.
 
-- Boulos, M.N.K., Warren, J., Gong, J. & Yue, P. (2010) Web GIS in practice VIII: HTML5 and the canvas element for interactive online mapping. International journal of health geographics 9, 14. Shin, Y. &
-- Wunsche, B.C. (2013) A smartphone-based golf simulation exercise game for supporting arthritis patients. 2013 28th International Conference of Image and Vision Computing New Zealand (IVCNZ), IEEE, pp. 459–464.
-- Wohlin, C., Runeson, P., Höst, M., Ohlsson, M.C., Regnell, B., Wesslén, A. (2012) Experimentation in Software Engineering, Berlin, Heidelberg: Springer Berlin Heidelberg.
+Som sist implementerades det en imageview. Bilden är från själva android studio som man kunde välja mellan när
+man la in en imageview i appen. Bilden position är i mitten av mellan textview och knapparna. Positionen ändrades
+inte för den skulle vara i mitten av appen. Men för att få den mitten av appen gjordes det med hjälp av att 
+sätta constrain mellan "start" på appen med "start" på bilden, mellan "end" på appen och "end" med bilden,
+mellan "top" av bilden med "bottom" av texten och sist mellan "bottom" av bilden med "top" av den ena av knapparna.
+Koden under visar hur det gjordes samt en rad kod som visar vart bilden är ifrån.
+
+```
+<ImageView
+    (...)
+    app:layout_constraintBottom_toTopOf="@+id/Button_Like"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/Text_Welcome"
+    app:srcCompat="@android:mipmap/sym_def_app_icon" />
+```
+
+Bilden under är då en bild av appen med texten, bilden och knapparna.
+
+![](BildPåAppen.png)
