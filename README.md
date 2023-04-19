@@ -26,7 +26,7 @@ Detta gjorde med två rader kod för att få en knapp att vara på rätt positio
     app:layout_constraintVertical_bias="0.8"/>
 ```
 
-Den andra knappen behöve bara den ena värdet som är vilken position den ska vara på vertikalr på grund av att
+Den andra knappen behöve bara den ena värdet som är vilken position den ska vara på vertikalt på grund av att
 när jag satte knappens "start" constraint med den andra knappens "end" så var knappen på rätt horizentalt nivå.
 
 Som sist implementerades det en imageview. Bilden är från själva android studio som man kunde välja mellan när
